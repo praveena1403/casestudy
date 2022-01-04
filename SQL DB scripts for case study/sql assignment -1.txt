@@ -1,0 +1,153 @@
+1.  select *
+  from emp
+  where job ='clerk';      
+
+
+ 2. select *
+  from emp
+  where job in ('clerk', 'manager');          
+
+ 3. select getdate() as currentdate;        
+
+4.  select ename,sal
+  from emp
+  where sal between 500 and 1000;           
+
+
+
+5.  SELECT HIREDATE,ENAME 
+   FROM EMP
+  WHERE MONTH(HIREDATE) = 12;                      
+
+6.   SELECT ENAME, SAL
+   FROM EMP
+   WHERE SAL NOT BETWEEN 1000 AND 2500;              
+
+             
+
+
+7.   SELECT ENAME, SAL
+  FROM EMP
+   WHERE SAL IN (800, 950, 3000,500);                 
+
+8.  SELECT ENAME
+  FROM EMP
+  WHERE ENAME LIKE '_L%';                            
+
+
+9.  SELECT ENAME
+  FROM EMP
+  WHERE ENAME LIKE '%D';                    
+
+10.  SELECT ENAME
+  FROM EMP
+  WHERE LEN(ENAME)=5;                           
+
+11.  SELECT ENAME
+  FROM EMP
+  WHERE ENAME LIKE 'T%R';                        
+
+
+12.  SELECT ENAME
+  FROM EMP
+  WHERE ENAME LIKE '%A%';                        
+
+13.  select * from emp
+  where DAY(hiredate) < 19                              
+
+
+14.  SELECT ENAME, EMPNO
+  FROM EMP
+  WHERE ENAME = 'james';                      
+
+15.  SELECT ENAME, SAL
+    FROM EMP
+    WHERE ENAME = 'KING';                            
+
+16.  SELECT ENAME, JOB
+    FROM EMP
+    WHERE JOB = 'PRESIDENT';                      
+
+17.  SELECT *
+  FROM EMP
+  WHERE JOB = 'MANAGER';                         
+
+18.  SELECT *
+    FROM EMP
+    WHERE COMM != 0;                                
+
+
+19.  SELECT HIREDATE,ENAME
+    FROM EMP
+    WHERE HIREDATE < '1981-04-01';                         
+
+
+20,21. SELECT ENAME, SAL
+      FROM EMP
+    WHERE ENAME IN ('King', 'Blake', 'Ford', 'Smith');     
+
+
+22.  SELECT SAL,ENAME
+    FROM EMP
+    WHERE SAL < 3500;                  
+
+
+23.  SELECT *
+    FROM EMP
+    WHERE JOB LIKE 'CLERK';     
+
+
+ 24. SELECT ENAME,SAL*12 AS ANUALSAL
+    FROM EMP;                              
+
+ 25. SELECT ENAME,((SAL*20)/100)*12 AS NEWANUALSAL
+    FROM EMP
+    WHERE ENAME = 'FORD';                    
+
+
+ 26. SELECT DEPTNO,SUM(SAL) AS SUMSAL
+    FROM EMP
+    GROUP BY DEPTNO;                                                       
+
+27.  SELECT ENAME,SAL,DEPTNO
+    FROM   EMP
+   WHERE  SAL =
+                (SELECT MIN(SAL)
+                 FROM   EMP
+				 WHERE DEPTNO = '10');            
+
+
+ 28. SELECT JOB , AVG(SAL) AS AVGSAL
+     FROM EMP
+    WHERE JOB LIKE 'MANAGER'
+    GROUP BY JOB;                
+
+
+ 29.  SELECT JOB , SUM(SAL) AS TOTALSAL
+      FROM EMP
+      WHERE JOB LIKE 'SALESMAN'
+      GROUP BY JOB;  
+
+30.  SELECT dep_id, avg(sal)
+     FROM emp
+     GROUP BY dep_id
+     HAVING avg(sal) <(SELECT avg(sal)FROM emp);                                  
+
+31.   SELECT COUNT(JOB) AS NOOFPERSONS,JOB AS JOBROLE
+     FROM EMP
+     GROUP BY JOB;                                  
+
+32.   SELECT MAX(SAL) AS HIGHSAL, JOB
+      FROM EMP
+     WHERE JOB IN ('ANALYST')
+     GROUP BY JOB;                                
+
+33.   SELECT MAX(COMM) AS HIGHCOMM
+     FROM EMP;                              
+
+
+34. select count(*) from dept                        
+
+33.SELECT ENAME
+   FROM EMP
+   WHERE ENAME LIKE '___L%'; 

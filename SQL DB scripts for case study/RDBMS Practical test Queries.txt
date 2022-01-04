@@ -1,0 +1,17 @@
+1. Write an SQL query to fetch the list of employees with the same salary.
+
+Query:
+
+select worker_id,first_name,salary from
+(
+select worker_id,first_name,salary,count(*) over (partition by salary) as salary_match_count
+from worker_details) wd
+where salary_match_count >1
+order by salary desc
+
+
+
+2. Display the name of employees having the highest salary in each department.
+
+select Worker_id, first_name, last_name, Department, salary from (SELECT Worker_id, first_name, last_name, Department, salary, MAX(Salary) over (partition by department) As max_salary FROM worker_details) As emp where 
+salary = max_salary
